@@ -86,7 +86,7 @@ This repo is configured for deployment to GitHub Pages (project site) under the 
 
 Changes introduced:
 
-- `vite.config.ts` sets `base: '/calendar-journal-web/'`
+- `vite.config.ts` sets default `base: '/calendar-journal-web/'` but you can override with env var `VITE_GH_PAGES_BASE` (ensure trailing slash)
 - `BrowserRouter` in `src/App.tsx` uses `basename="/calendar-journal-web"`
 - `public/404.html` handles deep-link refreshes on GitHub Pages for SPA routing
 
