@@ -2,7 +2,6 @@ import { Hero } from "@/components/Hero";
 import { Features } from "@/components/Features";
 import { WhyCalendarJournal } from "@/components/WhyCalendarJournal";
 import { UseCases } from "@/components/UseCases";
-import { Screenshots } from "@/components/Screenshots";
 import { DownloadCTA } from "@/components/DownloadCTA";
 
 const Index = () => {
