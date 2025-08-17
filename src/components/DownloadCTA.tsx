@@ -53,7 +53,7 @@ export const DownloadCTA = () => {
           </a>
         </div>
         <p className="text-muted-foreground text-sm">
-          &copy; 2024 Calendar Journal. Made with ❤️ for mindful journaling.
+          &copy; 2025 Calendar Journal. Made with ❤️ for mindful journaling by EmpowerThePeople.
         </p>
       </footer>
     </section>
