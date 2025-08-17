@@ -14,15 +14,23 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-  {/* The basename must match the Vite base (GitHub Pages repo name) */}
-  <BrowserRouter basename="/calendar-journal-web">
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/privacy" element={<PrivacyPolicy />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
+      {/* The basename must match the Vite base (GitHub Pages repo name). */}
+      {(() => {
+        const raw = (import.meta as any).env?.VITE_GH_PAGES_BASE as string | undefined;
+        // Normalize: remove trailing slash for react-router basename, except keep single '/'
+        let basename = raw ? raw.replace(/\/$/, '') : '/calendar-journal-web';
+        if (basename === '/' || basename === '') basename = '/';
+        return (
+          <BrowserRouter basename={basename === '/' ? undefined : basename}>
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/privacy" element={<PrivacyPolicy />} />
+              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </BrowserRouter>
+        );
+      })()}
     </TooltipProvider>
   </QueryClientProvider>
 );
