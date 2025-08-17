@@ -4,19 +4,21 @@
     <meta charset="utf-8" />
     <title>404 - Page Not Found</title>
     <script>
-      // GitHub Pages SPA redirect handling.
-      // If the current URL contains the repo base path, strip it for internal routing.
-      (function() {
-        var l = window.location;
-        // The base path of the project site.
-        var base = '/calendar-journal-web';
-        // Build the redirect URL preserving path after the base and query/hash.
-        if (l.pathname.startsWith(base)) {
-          var newPath = l.pathname.slice(base.length);
-          if (!newPath.startsWith('/')) newPath = '/' + newPath;
-          var redirectUrl = base + '/index.html?redirect=' + encodeURIComponent(newPath + l.search + l.hash);
-          window.location.replace(redirectUrl);
+      // Generic GitHub Pages SPA redirect.
+      // 1. Detect the deployed base path by looking at current script path.
+      // 2. Redirect to index.html with original path encoded so the SPA router can handle it.
+      (function () {
+        var loc = window.location;
+        var path = loc.pathname;
+        // Heuristic: repository name is the first segment when not a user site.
+        var segments = path.split('/').filter(Boolean);
+        var base = '/';
+        if (segments.length > 0 && !segments[0].endsWith('.github.io')) {
+          base = '/' + segments[0] + '/';
         }
+        var rel = path.substring(base.length - 1); // keep leading slash
+        var redirectUrl = base + 'index.html?redirect=' + encodeURIComponent(rel + loc.search + loc.hash);
+        window.location.replace(redirectUrl);
       })();
     </script>
   </head>
