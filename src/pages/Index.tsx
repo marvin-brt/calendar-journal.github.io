@@ -12,7 +12,6 @@ const Index = () => {
       <Features />
       <WhyCalendarJournal />
       <UseCases />
-      <Screenshots />
       <DownloadCTA />
     </div>
   );

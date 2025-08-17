@@ -151,7 +151,7 @@ const PrivacyPolicy = () => {
               <div className="space-y-4 text-muted-foreground">
                 <p>If you have any questions about this privacy policy or our practices, please contact us:</p>
                 <div className="bg-muted/50 p-4 rounded-lg">
-                  <p><strong>Email:</strong> privacy@calendarjournal.app</p>
+                  <p><strong>Email:</strong> hello.empowerthepeople@gmail.com</p>
                   <p><strong>Subject:</strong> Privacy Policy Question</p>
                 </div>
                 <p>We're committed to addressing your privacy concerns and will respond within 48 hours.</p>
