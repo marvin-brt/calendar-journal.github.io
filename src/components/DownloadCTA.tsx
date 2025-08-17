@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Download, Play } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export const DownloadCTA = () => {
   return (
@@ -35,8 +36,25 @@ export const DownloadCTA = () => {
       </div>
       
       {/* Footer */}
-      <footer className="mt-16 text-center text-muted-foreground">
-        <p>&copy; 2024 Calendar Journal. Made with ❤️ for mindful journaling.</p>
+      <footer className="mt-16 text-center">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
+          <Link 
+            to="/privacy" 
+            className="text-muted-foreground hover:text-primary transition-colors duration-300 underline-offset-4 hover:underline"
+          >
+            Privacy Policy
+          </Link>
+          <span className="hidden sm:inline text-muted-foreground">•</span>
+          <a 
+            href="mailto:hello@calendarjournal.app" 
+            className="text-muted-foreground hover:text-primary transition-colors duration-300 underline-offset-4 hover:underline"
+          >
+            Contact
+          </a>
+        </div>
+        <p className="text-muted-foreground text-sm">
+          &copy; 2024 Calendar Journal. Made with ❤️ for mindful journaling.
+        </p>
       </footer>
     </section>
   );
