@@ -9,9 +9,16 @@ export const Hero = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
           <div className="text-center lg:text-left animate-fade-in">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
-              Calendar Journal
-            </h1>
+            <div className="flex items-center justify-center lg:justify-start gap-4 mb-6">
+              <img 
+                src="/lovable-uploads/a7b72dd6-3764-4f19-88ce-7becd696eec4.png" 
+                alt="Calendar Journal App Icon" 
+                className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl shadow-medium"
+              />
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
+                Calendar Journal
+              </h1>
+            </div>
             <p className="text-xl sm:text-2xl text-accent font-semibold mb-4">
               Simple. Clean. Personal.
             </p>
