@@ -80,23 +80,16 @@ bun run build
 
 Output is in `dist/`.
 
-## Deployment (GitHub Pages)
+## Deployment (GitHub Pages User Site)
 
-This repo is configured for deployment to GitHub Pages (project site) under the path `/calendar-journal-web/`.
+Repo renamed to `marvin-brt.github.io` so the site is served from root `https://marvin-brt.github.io/`.
 
-Changes introduced:
+Key points:
+- `vite.config.ts` uses `base: '/'`.
+- Router uses plain `<BrowserRouter>` (no basename).
+- `public/404.html` redirects deep links to `/index.html?redirect=...` and `RedirectHandler` restores the path.
 
-- `vite.config.ts` sets default `base: '/calendar-journal-web/'` but you can override with env var `VITE_GH_PAGES_BASE` (ensure trailing slash)
-- `BrowserRouter` in `src/App.tsx` uses `basename="/calendar-journal-web"`
-- `public/404.html` handles deep-link refreshes on GitHub Pages for SPA routing
-
-### Steps
-1. Commit and push changes to `main`.
-2. Create a GitHub Actions workflow (e.g. `.github/workflows/deploy.yml`) that runs `bun install` (or npm), `bun run build`, and deploys `dist` to the `gh-pages` branch.
-3. Enable GitHub Pages in repo settings: Source = `gh-pages` branch, root `/`.
-
-### Custom Domain
-If you later use a custom domain with a `CNAME`, set `base: '/'` in `vite.config.ts` and remove the `basename` prop from `BrowserRouter`.
+Redeploy: push to `main` and the GitHub Actions workflow builds & publishes.
 
 ## License
 Proprietary – All rights reserved.
