@@ -38,27 +38,14 @@ npm run dev
 
 **Edit a file directly in GitHub**
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
 
 **Use GitHub Codespaces**
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
 
 ## What technologies are used for this project?
 
 This project is built with:
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
 
 ## How can I deploy this project?
 
@@ -71,3 +58,45 @@ Yes, you can!
 To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
 
 Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+
+# calendar-journal-web
+
+Marketing site for Calendar Journal built with Vite + React + TypeScript + Tailwind (shadcn/ui components).
+
+## Local Development
+
+Install deps (using bun, npm or pnpm) and run dev server:
+
+```bash
+bun install
+bun run dev
+```
+
+## Build
+
+```bash
+bun run build
+```
+
+Output is in `dist/`.
+
+## Deployment (GitHub Pages)
+
+This repo is configured for deployment to GitHub Pages (project site) under the path `/calendar-journal-web/`.
+
+Changes introduced:
+
+- `vite.config.ts` sets `base: '/calendar-journal-web/'`
+- `BrowserRouter` in `src/App.tsx` uses `basename="/calendar-journal-web"`
+- `public/404.html` handles deep-link refreshes on GitHub Pages for SPA routing
+
+### Steps
+1. Commit and push changes to `main`.
+2. Create a GitHub Actions workflow (e.g. `.github/workflows/deploy.yml`) that runs `bun install` (or npm), `bun run build`, and deploys `dist` to the `gh-pages` branch.
+3. Enable GitHub Pages in repo settings: Source = `gh-pages` branch, root `/`.
+
+### Custom Domain
+If you later use a custom domain with a `CNAME`, set `base: '/'` in `vite.config.ts` and remove the `basename` prop from `BrowserRouter`.
+
+## License
+Proprietary – All rights reserved.
